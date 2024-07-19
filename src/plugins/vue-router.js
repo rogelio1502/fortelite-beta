@@ -1,0 +1,17 @@
+import { createWebHistory, createRouter } from 'vue-router'
+import IndexView from '@/views/IndexView.vue'
+import ClientsView from '@/views/ClientsView.vue'
+import SegmentsView from '@/views/SegmentsView.vue'
+
+const routes = [
+  { path: '/', component: IndexView },
+  { path: '/segments', component: SegmentsView },
+  { path: '/clients', component: ClientsView },
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+
+export default router
