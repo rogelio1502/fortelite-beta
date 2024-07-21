@@ -1,9 +1,9 @@
 <template>
   <div class="wha-icon">
     <a
-      href="https://api.whatsapp.com/send?phone=528135433600"
+      :href="whaHref"
       target="_blank"
-      title="Enviar Mensaje"
+      title="Contact us on WhatsApp"
       ><i class="fab fa-whatsapp"></i
     ></a>
   </div>
@@ -14,6 +14,10 @@
 <script setup>
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import "@/assets/main.css";
+import { MAIN } from "@/constants/main";
+import { computed } from "vue";
+
+const whaHref = computed(() => "https://api.whatsapp.com/send?phone=" + MAIN.wha_phone);
 </script>
 
 <style >
