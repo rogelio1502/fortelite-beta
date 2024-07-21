@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --sky-300: #2DBCDA;
+}
+
 body, #app {
     min-height: 100vh;
 }
@@ -9,4 +13,8 @@ body, #app {
 #app {
     display: flex;
     flex-direction: column;
+}
+
+.aspect-ratio-square { 
+    aspect-ratio: 1 / 1;
 }

@@ -5,7 +5,7 @@ import SegmentsView from '@/views/SegmentsView.vue'
 
 const routes = [
   { path: '/', component: IndexView },
-  { path: '/segments', component: SegmentsView },
+  { path: '/segments/:segment_slug', component: SegmentsView },
   { path: '/clients', component: ClientsView },
 ]
 
