@@ -38,7 +38,7 @@ const navigationList = [
   },
   {
     text: "Segmentos",
-    to: "/segments",
+    to: "/segments/alimentos-y-bebidas",
   },
   {
     text: "Clientes",
