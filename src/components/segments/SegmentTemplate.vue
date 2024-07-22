@@ -118,8 +118,10 @@ const props = defineProps({
 
   .banner__text {
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    right: 0;
+    text-align: center;
+    transform: translateY(-50%);
   }
 }
 
