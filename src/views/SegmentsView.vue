@@ -1,5 +1,8 @@
 <template>
-  <SegmentTemplate :segment="currentSegment" />
+  <SegmentTemplate v-if="currentSegment" :segment="currentSegment" />
+  <div clasS="py-28" v-else>
+    <p class="text-center text-primary text-3xl font-semibold">No se encontro el segmento.</p>
+  </div>
 </template>
 <script setup>
 import { computed } from 'vue';
