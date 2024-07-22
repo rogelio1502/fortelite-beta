@@ -3,12 +3,14 @@ import { computed } from 'vue';
 import { ref } from 'vue';
 import { CONTACT } from '@/constants/contact';
 import axios from 'axios';
+const Swal = require('sweetalert2')
 
 const buttomImage = computed(() => CONTACT.buttom_image);
 const title = computed(() => CONTACT.title);
 const topBannerImage = computed(() => CONTACT.top_banner);
 const formEndpoint = computed(() => CONTACT.form_endpoint);
 const thanksMessage = computed(() => CONTACT.thanks_message);
+const erroMessage = computed(() => CONTACT.error_message);
 
 const formData = ref({
     fullName: '',
@@ -28,10 +30,11 @@ const handleSubmit = () => {
             return;
         }
     }
-
     axios.post(
-        formEndpoint.value,
-        formData.value
+        formEndpoint.value + "?type=contact_us",
+        {
+            data: JSON.stringify(formData.value)
+        }
     ).then(() => {
 
         formData.value = {
@@ -44,13 +47,21 @@ const handleSubmit = () => {
             origin: '',
             message: ''
         };
-        alert(thanksMessage.value);
-
+        Swal.fire({
+            text: thanksMessage.value,
+            icon: 'success',
+            confirmButtonText: 'OK'
+        })
     }).catch(error => {
+        Swal.fire({
+            title: '¡Ups...!',
+            text: erroMessage.value,
+            icon: 'error',
+            confirmButtonText: 'OK'
+        })
         console.error(error);
     });
 };
-
 
 </script>
 
