@@ -1,3 +1,59 @@
+<script setup>
+import { computed } from 'vue';
+import { ref } from 'vue';
+import { CONTACT } from '@/constants/contact';
+import axios from 'axios';
+
+const buttomImage = computed(() => CONTACT.buttom_image);
+const title = computed(() => CONTACT.title);
+const topBannerImage = computed(() => CONTACT.top_banner);
+const formEndpoint = computed(() => CONTACT.form_endpoint);
+const thanksMessage = computed(() => CONTACT.thanks_message);
+
+const formData = ref({
+    fullName: '',
+    email: '',
+    phone: '',
+    state: '',
+    marketSector: '',
+    piecesQuantity: '',
+    origin: '',
+    message: ''
+});
+
+const handleSubmit = () => {
+    for (const key in formData.value) {
+        if (formData.value[key] === '') {
+            alert(`El campo ${key} es requerido.`);
+            return;
+        }
+    }
+
+    axios.post(
+        formEndpoint.value,
+        formData.value
+    ).then(() => {
+
+        formData.value = {
+            fullName: '',
+            email: '',
+            phone: '',
+            state: '',
+            marketSector: '',
+            piecesQuantity: '',
+            origin: '',
+            message: ''
+        };
+        alert(thanksMessage.value);
+
+    }).catch(error => {
+        console.error(error);
+    });
+};
+
+
+</script>
+
 <template>
     <section class="bg-primary w-full">
         <img :src="topBannerImage" alt="">
@@ -71,8 +127,8 @@
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
                                 <label class="mb-2">
-                                    <input type="radio" name="origin" value="Recomendacion"
-                                        v-model="formData.origin" class="mr-2" /> Recomendación
+                                    <input type="radio" name="origin" value="Recomendacion" v-model="formData.origin"
+                                        class="mr-2" /> Recomendación
                                 </label>
                                 <label class="mb-2">
                                     <input type="radio" name="origin" value="Otro" v-model="formData.origin"
@@ -97,50 +153,6 @@
         </section>
     </section>
 </template>
-
-<script setup>
-import { computed } from 'vue';
-import { ref } from 'vue';
-import { CONTACT } from '@/constants/contact';
-
-const buttomImage = computed(() => CONTACT.buttom_image);
-const title = computed(() => CONTACT.title);
-const topBannerImage = computed(() => CONTACT.top_banner);
-
-const formData = ref({
-    fullName: '',
-    email: '',
-    phone: '',
-    state: '',
-    marketSector: '',
-    piecesQuantity: '',
-    origin: '',
-    message: ''
-});
-
-const handleSubmit = () => {
-    // Validate and handle form submission
-    console.log('Form data:', formData.value);
-    // Example validation
-    for (const key in formData.value) {
-        if (formData.value[key] === '') {
-            alert(`El campo ${key} es requerido.`);
-            return;
-        }
-    }
-    formData.value = {
-        fullName: '',
-        email: '',
-        phone: '',
-        state: '',
-        marketSector: '',
-        piecesQuantity: '',
-        origin: '',
-        message: ''
-    };
-    alert('¡Muchas gracias por contactarnos, estaremos en contacto contigo lo más pronto posible!');
-};
-</script>
 
 <style scoped>
 /* Optional: additional styles */
