@@ -2,14 +2,14 @@
   <header class="header__container flex items-center gap-20 pl-20 pr-8">
     <RouterLink to="/">Fortelite</RouterLink>
     <nav class="ml-auto">
-      <ul class="flex items-center gap-6">
+      <ul class="flex items-center gap-1">
         <li
           v-for="(navItem, navItemIndex) in navigationList"
           :key="`${navItem.text}_${navItemIndex}`"
         >
           <RouterLink
             :to="navItem.to"
-            class="nav__link relative block px-8 py-8 cursor-pointer hover:bg-secondary font-semibold"
+            class="nav__link relative block px-8 py-6 cursor-pointer hover:bg-secondary font-semibold"
             :class="{
               'bg-secondary active': route.fullPath === navItem.to,
             }"
