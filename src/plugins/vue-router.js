@@ -4,6 +4,7 @@ import ClientsView from '@/views/ClientsView.vue'
 import SegmentsView from '@/views/SegmentsView.vue'
 import ServicesView from '@/views/ServicesView.vue'
 import ContactView from '@/views/ContactView.vue'
+import AboutUsView from '@/views/AboutUsView.vue'
 
 const routes = [
   { path: '/', component: IndexView },
@@ -11,7 +12,8 @@ const routes = [
   { path: '/clients', component: ClientsView },
   { path: '/services', component: ServicesView },
   { path: '/:catchAll(.*)', redirect: '/'},
-  { path: '/contact', component: ContactView}
+  { path: '/contact', component: ContactView},
+  { path: '/about-us', component: AboutUsView}
 ]
 
 const router = createRouter({

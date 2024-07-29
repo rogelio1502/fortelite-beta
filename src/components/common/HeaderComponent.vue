@@ -1,6 +1,8 @@
 <template>
   <header class="header__container flex items-center gap-20 pl-20 pr-8">
-    <RouterLink to="/">Fortelite</RouterLink>
+    <RouterLink to="/">
+      <img class="w-[70px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/1.png" />
+    </RouterLink>
     <nav class="ml-auto">
       <ul class="flex items-center gap-1">
         <li

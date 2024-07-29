@@ -39,19 +39,19 @@ export const HOME_SEGMENTS = [
 
 export const HOME_SERVICES = [
   {
-    src: 'mdi-account-group',
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/FLEXO-1.jpg',
     text: 'Flexografía'
   },
   {
-    src: 'mdi-account-group',
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/MG_9975-1-scaled.jpg',
     text: 'Placas Metálicas'
   },
   {
-    src: 'mdi-account-group',
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/DSC_2273-1.jpg',
     text: 'Digital'
   },
   {
-    src: 'mdi-account-group',
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/iStock-1127848486-1-scaled.jpg',
     text: 'Offset'
   },
 ];

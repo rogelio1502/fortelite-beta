@@ -51,8 +51,27 @@
       <article>
         <h2 class="mb-4 font-semibold">!SÍGUENOS!</h2>
         <nav>
-          <ul>
-            <li>FB</li>
+          <ul class="grid social-networks gap-4">
+            <li>
+              <a href="https://www.facebook.com/fortelitedurablelabels/" target="_blank">
+                <img class="w-[30px] aspect-square" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/fb-icon.svg" />
+              </a>
+            </li>
+            <li>
+              <a href="https://mx.linkedin.com/company/fortelite" target="_blank">
+                <img class="w-[30px] aspect-square" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/linkedin-icon.svg" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/fortelite_labels/" target="_blank">
+                <img class="w-[30px] aspect-square" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/instagram-icon.svg" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@forteliteetiquetas" target="_blank">
+                <img class="w-[30px] aspect-square" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/tiktok-icon.svg" />
+              </a>
+            </li>
           </ul>
         </nav>
       </article>
@@ -65,5 +84,9 @@ import ContainerComponent from "./ContainerComponent.vue";
 <style lang="scss" scoped>
 .footer__container {
   grid-template-columns: auto auto auto auto;
+}
+
+.social-networks {
+  grid-template-columns: repeat(4, 30px);
 }
 </style>
