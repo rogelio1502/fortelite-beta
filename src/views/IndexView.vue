@@ -5,7 +5,7 @@
   <div class="relative">
     <ContainerComponent tag="article" class="grid product__container py-0">
       <div>
-        <img loading="lazy" class="w-full aspect-auto" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/MOCKUP-PILLS-BOTTLE_Colored-2.png" />
+        <img loading="lazy" class="w-full aspect-square" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/MOCKUP-PILLS-BOTTLE_Colored-2.png" />
       </div>
       <div class="self-center">
         <h2 class="text-sky-300 text-5xl font-semibold">Fortelite</h2>
@@ -22,7 +22,7 @@
     </ContainerComponent>
     <BarComponent position="top-left" height="20" width="320" inverted />
   </div>
-  <div class="bg-primary py-10">
+  <div class="bg-primary py-14">
     <ContainerComponent>
       <h2 class="text-center text-5xl text-white font-semibold mb-12">
         Segmentos
@@ -33,7 +33,10 @@
           :key="`${segment.text}_${segmentIndex}`"
           class="text-center"
         >
-          <h3 class="text-white text-lg font-semibold">{{ segment.text }}</h3>
+          <RouterLink class="inline-block w-full" :to="segment.href">
+            <img class="w-6/12 mx-auto aspect-square" :src="segment.icon" loading="lazy" />
+          </RouterLink>
+          <h3 class="text-white text-2xl font-semibold -mt-6">{{ segment.text }}</h3>
         </div>
       </div>
     </ContainerComponent>

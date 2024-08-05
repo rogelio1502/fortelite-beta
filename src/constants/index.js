@@ -1,39 +1,48 @@
 export const HOME_SEGMENTS = [
   {
-    icon: 'mdi-account-group',
-    text: 'Industrial'
+    icon: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Iconos-Segmentos-Fortelite-01-1.svg',
+    text: 'Industrial',
+    href: '/segments/industrial'
   },
   {
-    icon: 'mdi-account-group',
-    text: 'Automotriz'
+    icon: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Iconos-Segmentos-Fortelite-02-1.svg',
+    text: 'Automotriz',
+    href: '/segments/automotriz'
   },
   {
-    icon: 'mdi-account-group',
-    text: 'Alimentos y bebidas'
+    icon: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Iconos-Segmentos-Fortelite-03.svg',
+    text: 'Alimentos y bebidas',
+    href: '/segments/alimentos-y-bebidas'
   },
   {
-    icon: 'mdi-account-group',
-    text: 'Vinos y licores'
+    icon: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Iconos-Segmentos-Fortelite-04.svg',
+    text: 'Vinos y licores',
+    href: '/segments/vinos-y-licores'
   },
   {
-    icon: 'mdi-account-group',
-    text: 'Salud y belleza'
+    icon: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Iconos-Segmentos-Fortelite-05.svg',
+    text: 'Salud y belleza',
+    href: '/segments/salud-y-belleza'
   },
   {
-    icon: 'mdi-account-group',
-    text: 'Hogar'
+    icon: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Iconos-Segmentos-Fortelite-06.svg',
+    text: 'Hogar',
+    href: '/segments/hogar'
   },
   {
-    icon: 'mdi-account-group',
-    text: 'Farmacéutica'
+    icon: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Iconos-Segmentos-Fortelite-07.svg',
+    text: 'Farmacéutica',
+    href: '/segments/farmaceutica'
   },
   {
-    icon: 'mdi-account-group',
-    text: 'Entretenimiento'
+    icon: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Iconos-Segmentos-Fortelite-08.svg',
+    text: 'Entretenimiento',
+    href: '/segments/entretenimiento'
   },
   {
-    icon: 'mdi-account-group',
-    text: 'Logística'
+    icon: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Iconos-Segmentos-Fortelite-09.svg',
+    text: 'Logística',
+    href: '/segments/logistica'
   },
 ];
 
