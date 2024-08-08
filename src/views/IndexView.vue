@@ -1,6 +1,20 @@
 <template>
-  <div class="video__container text-white text-center pt-10">
-    Componente de Video
+  <div class="video__container text-white text-center">
+    <carousel :items-to-show="1">
+      <slide v-for="(video, idx) in carouselVideos" :key="idx">
+        <div class="carousel__item">
+          <video controls width="60%">
+              <source :src="video.src" :type="video.type">
+              Tu navegador no soporta el elemento de video.
+            
+          </video>
+        </div>
+      </slide>
+      <template #addons>
+        <navigation />
+        <pagination />
+      </template>
+    </carousel>
   </div>
   <div class="relative">
     <ContainerComponent tag="article" class="grid product__container py-0">
@@ -75,15 +89,38 @@
 <script setup>
 import BarComponent from "@/components/common/BarComponent.vue";
 import ContainerComponent from "@/components/common/ContainerComponent.vue";
-import { HOME_SEGMENTS, HOME_SERVICES } from "@/constants";
+import { HOME_SEGMENTS, HOME_SERVICES, HOME_CAROUSEL_VIDEOS } from "@/constants";
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { computed } from 'vue';
+
+const carouselVideos = computed(() => {
+  return HOME_CAROUSEL_VIDEOS.map((video) => {
+    return {
+      src: video.src,
+      type: video.type,
+    };
+  });
+});
+
 </script>
 <style lang="scss" scoped>
 .video__container {
-  height: 500px;
+  min-height: 500px;
   background-color: #214583;
 }
 
 .product__container {
   grid-template-columns: 1fr 1fr;
 }
+
+.carousel__item {
+  min-height: 450px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
 </style>

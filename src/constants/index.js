@@ -64,3 +64,14 @@ export const HOME_SERVICES = [
     text: 'Offset'
   },
 ];
+
+export const HOME_CAROUSEL_VIDEOS =[
+  {
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/3209663-uhd_2560_1440_25fps.mp4',
+    type: 'video/mp4'
+  },
+  {
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/5198164-uhd_3840_2160_25fps.mp4',
+    type: 'video/mp4'
+  },
+];
