@@ -1,7 +1,7 @@
 <template>
   <header class="header__container flex items-center gap-20 pl-20 pr-8">
     <RouterLink to="/">
-      <img class="w-[70px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/1.png" />
+      <img class="w-[100px] h-[72px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Logo-Fortelite-01.png" />
     </RouterLink>
     <nav class="ml-auto">
       <ul class="flex items-center gap-1">
@@ -43,20 +43,12 @@ const navigationList = [
     to: "/segments/alimentos-y-bebidas",
   },
   {
-    text: "Clientes",
+    text: "Nosotros",
     to: "/clients",
-  },
-  {
-    text: "Sustentabilidad",
-    to: "/sustentability",
   },
   {
     text: "Contacto",
     to: "/contact",
-  },
-  {
-    text: "Blog",
-    to: "/blog",
   },
 ];
 </script>

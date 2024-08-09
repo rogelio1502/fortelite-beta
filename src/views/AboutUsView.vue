@@ -20,6 +20,7 @@
         de expertos ha recorrido un largo camino en la búsqueda de la alta calidad y excelencia en cada producto
         que fabricamos, para asegurar así más resistencia, seguridad y una aliada silenciosa en ventas.
       </p>
+      <img src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Time-Line-Fortelite-Nosotros-e1723228748654.png" />
     </ContainerComponent>
     <hr class="my-10">
     <ContainerComponent class="pt-8 pb-20">
@@ -61,10 +62,39 @@
     </ContainerComponent>
     <img class="w-2/12 absolute bottom-0 left-0 -z-10" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/Captura-de-pantalla-2024-07-21-a-las-12.46.58%E2%80%AFp.m-e1721587699795.png" loading="lazy">
   </div>
+  <div>
+    <carousel :items-to-show="4">
+      <slide v-for="(video, idx) in carouselVideos" :key="idx">
+        <div class="carousel__item">
+          <video controls width="300px" height="400px" autoplay loop muted>
+              <source :src="video.src" :type="video.type">
+              Tu navegador no soporta el elemento de video.
+          </video>
+        </div>
+      </slide>
+      <template #addons>
+        <navigation />
+        <pagination />
+      </template>
+    </carousel>
+  </div>
 </template>
 <script setup>
+import { computed } from 'vue';
 import BarComponent from '@/components/common/BarComponent.vue';
 import ContainerComponent from '@/components/common/ContainerComponent.vue';
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+import { HOME_CAROUSEL_VIDEOS } from "@/constants";
+
+const carouselVideos = computed(() => {
+  return HOME_CAROUSEL_VIDEOS.map((video) => {
+    return {
+      src: video.src,
+      type: video.type,
+    };
+  });
+});
+
 </script>
 <style scoped>
 .certifications {

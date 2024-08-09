@@ -1,6 +1,10 @@
 <template>
   <div class="video__container text-white text-center">
-    <carousel :items-to-show="1">
+    <video controls autoplay loop muted playsinline class="video__element">
+        <source src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/VIDEO-pag-inicio1.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+    <!-- <carousel :items-to-show="1">
       <slide v-for="(video, idx) in carouselVideos" :key="idx">
         <div class="carousel__item">
           <video controls width="60%">
@@ -14,7 +18,7 @@
         <navigation />
         <pagination />
       </template>
-    </carousel>
+    </carousel> -->
   </div>
   <div class="relative">
     <ContainerComponent tag="article" class="grid product__container py-0">
@@ -84,24 +88,31 @@
   <hr>
   <ContainerComponent class="py-8">
     <h2 class="text-sky-300 text-2xl text-center font-semibold">Algunos de nuestros clientes</h2>
+    <div class="flex gap-4">
+      <img class="client__image" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/logo-HyundaiTrue.png" />
+      <img class="client__image" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/NIPPON-SEIKI.png" />
+      <img class="client__image" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Panasonic_brand-Logo.wine_.png" />
+      <img class="client__image" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/schweitzer-engineering-laboratories-sel-logo-vector.png" />
+    </div>
   </ContainerComponent>
 </template>
 <script setup>
 import BarComponent from "@/components/common/BarComponent.vue";
 import ContainerComponent from "@/components/common/ContainerComponent.vue";
-import { HOME_SEGMENTS, HOME_SERVICES, HOME_CAROUSEL_VIDEOS } from "@/constants";
+// import { HOME_SEGMENTS, HOME_SERVICES, HOME_CAROUSEL_VIDEOS } from "@/constants";
+import { HOME_SEGMENTS, HOME_SERVICES} from "@/constants";
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import { computed } from 'vue';
+// import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+// import { computed } from 'vue';
 
-const carouselVideos = computed(() => {
-  return HOME_CAROUSEL_VIDEOS.map((video) => {
-    return {
-      src: video.src,
-      type: video.type,
-    };
-  });
-});
+// const carouselVideos = computed(() => {
+//   return HOME_CAROUSEL_VIDEOS.map((video) => {
+//     return {
+//       src: video.src,
+//       type: video.type,
+//     };
+//   });
+// });
 
 </script>
 <style lang="scss" scoped>
@@ -121,6 +132,10 @@ const carouselVideos = computed(() => {
   justify-content: center;
   align-items: center;
   padding-top: 10px;
+}
+
+.client__image {
+  width: 250px;
 }
 
 </style>

@@ -67,11 +67,19 @@ export const HOME_SERVICES = [
 
 export const HOME_CAROUSEL_VIDEOS =[
   {
-    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/3209663-uhd_2560_1440_25fps.mp4',
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/MISION.mp4',
     type: 'video/mp4'
   },
   {
-    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/5198164-uhd_3840_2160_25fps.mp4',
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/OBJETIVOS.mp4',
+    type: 'video/mp4'
+  },
+  {
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/VALORES.mp4',
+    type: 'video/mp4'
+  },
+  {
+    src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/VIDEOS.mp4',
     type: 'video/mp4'
   },
 ];

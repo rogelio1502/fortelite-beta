@@ -76,6 +76,10 @@
         </nav>
       </article>
     </ContainerComponent>
+    <ContainerComponent>
+      <img class="w-[100px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Logo-Fortelite-01.png" alt="">
+    </ContainerComponent>
+      
   </footer>
 </template>
 <script setup>
