@@ -111,4 +111,11 @@ import BarComponent from '@/components/common/BarComponent.vue';
   width: calc(100% - 200px * 2);
   margin-inline: auto;
 }
+
+@media only screen and (max-width: 768px) {
+  .services__container {
+    width: calc(100% - 20px); /* Reduce los márgenes laterales en móviles */
+    padding: 0 10px;
+  }
+}
 </style>

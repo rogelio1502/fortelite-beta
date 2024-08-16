@@ -1,14 +1,17 @@
 <template>
-  <footer class="bg-primary py-20">
+  <footer class="bg-primary py-10 md:py-20">
     <ContainerComponent class="footer__container grid gap-10 text-white">
       <article>
         <h2 class="mb-4 font-semibold">Grupo Fortelite México</h2>
         <nav>
           <ul class="flex flex-col font-light">
             <li>www.foterlite.mx</li>
-            <li class="inline-flex flex-col self-baseline">
+            <li >
               Teléfono: +52 8118725333
-              <span class="self-end">+52 8183624116</span>
+              
+            </li>
+            <li>
+              +52 8183624116
             </li>
             <li>
               <a href="mailto:info@fortelit.mx">info@fortelit.mx</a>
@@ -48,10 +51,10 @@
           </ul>
         </nav>
       </article>
-      <article>
+      <article class="flex flex-col items-center">
         <h2 class="mb-4 font-semibold">!SÍGUENOS!</h2>
         <nav>
-          <ul class="grid social-networks gap-4">
+          <ul class="grid social-networks gap-4 place-items-center mx-auto">
             <li>
               <a href="https://www.facebook.com/fortelitedurablelabels/" target="_blank">
                 <img class="w-[30px] aspect-square" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/fb-icon.svg" />
@@ -76,21 +79,34 @@
         </nav>
       </article>
     </ContainerComponent>
-    <ContainerComponent>
-      <img class="w-[100px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Logo-Fortelite-01.png" alt="">
+    <ContainerComponent class="text-center mt-8">
+      <img class="w-[80px] md:w-[100px] mx-auto" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Logo-Fortelite-01.png" alt="">
     </ContainerComponent>
-      
   </footer>
 </template>
+
 <script setup>
 import ContainerComponent from "./ContainerComponent.vue";
 </script>
+
 <style lang="scss" scoped>
 .footer__container {
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 1fr;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .social-networks {
   grid-template-columns: repeat(4, 30px);
+  place-items: center;
+  justify-content: center; /* Para centrar la lista horizontalmente */
 }
 </style>

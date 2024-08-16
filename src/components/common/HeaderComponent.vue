@@ -1,29 +1,41 @@
+
 <template>
-  <header class="header__container flex items-center gap-20 pl-20 pr-8">
-    <RouterLink to="/">
-      <img class="w-[100px] h-[72px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Logo-Fortelite-01.png" />
-    </RouterLink>
-    <nav class="ml-auto">
-      <ul class="flex items-center gap-1">
-        <li
-          v-for="(navItem, navItemIndex) in navigationList"
-          :key="`${navItem.text}_${navItemIndex}`"
-        >
-          <RouterLink
-            :to="navItem.to"
-            class="nav__link relative block px-8 py-6 cursor-pointer hover:bg-secondary font-semibold"
-            :class="{
-              'bg-secondary active': route.fullPath === navItem.to,
-            }"
+    <!-- <div class="hidden lg:inline-flex"></div> -->
+    <div class="hidden lg:inline-flex">
+    <header class="header__container flex items-center gap-20 pl-20 pr-8">
+      <RouterLink to="/">
+        <img class="w-[100px] h-[72px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Logo-Fortelite-01.png" />
+      </RouterLink>
+      <nav class="ml-auto">
+        <ul class="flex items-center gap-1">
+          <li
+            v-for="(navItem, navItemIndex) in navigationList"
+            :key="`${navItem.text}_${navItemIndex}`"
           >
-            {{ navItem.text }}
-          </RouterLink>
-        </li>
-        <li class="px-4 py-1 rounded bg-sky-100">ENG</li>
-      </ul>
-    </nav>
-  </header>
+            <RouterLink
+              :to="navItem.to"
+              class="nav__link relative block px-8 py-6 cursor-pointer hover:bg-secondary font-semibold"
+              :class="{
+                'bg-secondary active': route.fullPath === navItem.to,
+              }"
+            >
+              {{ navItem.text }}
+            </RouterLink>
+          </li>
+          <li class="px-4 py-1 rounded bg-sky-100">ENG</li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  
+  
+
+
+
 </template>
+
+
 <script setup>
 import { useRoute } from 'vue-router'
 
@@ -52,6 +64,8 @@ const navigationList = [
   },
 ];
 </script>
+
+
 <style lang="scss" scoped>
 .nav__link {
   &::after {
