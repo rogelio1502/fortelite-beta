@@ -117,5 +117,15 @@ import BarComponent from '@/components/common/BarComponent.vue';
     width: calc(100% - 20px); /* Reduce los márgenes laterales en móviles */
     padding: 0 10px;
   }
+
+  .banner-top {
+  .banner-top__text {
+    transform: translateY(-50%);
+  }
+
+  img {
+    height: 150px;
+  }
+}
 }
 </style>

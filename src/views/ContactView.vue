@@ -75,7 +75,7 @@ const handleSubmit = () => {
             <h1 class="text-center text-5xl font-bold text-sky-200">{{ title }}</h1>
         </section>
         <section class="w-full bg-sky-100 flex justify-center ">
-            <form @submit.prevent="handleSubmit" class="p-20 rounded-lg w-4/5">
+            <form @submit.prevent="handleSubmit" class="custom-padding rounded-lg w-4/5">
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mb-4">
                     <div>
                         <label for="fullName" class="block text-gray-700 mb-2">Nombre completo</label>
@@ -166,5 +166,15 @@ const handleSubmit = () => {
 </template>
 
 <style scoped>
-/* Optional: additional styles */
+
+.custom-padding{
+    padding: 5rem;
+}
+
+@media (max-width: 768px) {
+    .custom-padding{
+        padding: 1rem;
+    }
+}
+
 </style>

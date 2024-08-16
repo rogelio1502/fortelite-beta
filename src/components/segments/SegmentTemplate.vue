@@ -71,19 +71,32 @@
       v-if="props.segment.finishes"
       class="segment__finishes relative pt-20"
     >
-      <BarComponent v-if="props.segment.finishes.showBar" height="280" width="20" />
+      <BarComponent v-if="props.segment.finishes.showBar" height="280" width="" />
       <h2 class="text-center text-5xl text-primary font-semibold">Acabados</h2>
       <div class="flex flex-wrap justify-center gap-y-16 mt-16">
         <div
           v-for="(finish, finishIndex) in props.segment.finishes.list"
-          class="finishes__image-wrapper relative flex flex-col gap-6 items-center"
+          class="finishes__image-wrapper relative flex flex-wrap segment-img gap-6 items-center"
           :key="`finish_${finishIndex}`"
         >
+
+         
           <img class="w-9/12 aspect-ratio-square rounded-full" :src="finish.image" loading="lazy" >
-          <span class="d-block finish__text text-sky-300 text-2xl font-semibold">{{ finish.text }}</span>
+          
+          <div class="flex justify between">
+
+        <span class="d-block finish__text text-sky-300 text-2xl font-semibold ">{{ finish.text }}</span>
+
         </div>
+
+          
+        </div>
+
+        
       </div>
     </div>
+
+
   </div>
 </template>
 <script setup>
@@ -109,6 +122,19 @@ const props = defineProps({
 <style lang="scss" scoped>
 .segment__images {
   grid-template-columns: repeat(var(--columns), 1fr);
+}
+
+@media (max-width: 768px) {
+  .segment__images {
+    grid-template-columns: repeat(2, 1fr); /* Cambia 2 por el número de columnas que quieras en móviles */
+    gap: 10px; /* Opcional: reduce el espacio entre las imágenes */
+  }
+
+  .segment__images img {
+    width: 100%; /* Asegura que las imágenes ocupen todo el ancho de la columna */
+    height: 150px; /* Ajusta la altura de las imágenes */
+    object-fit: cover; /* Recorta la imagen para llenar el contenedor si es necesario */
+  }
 }
 
 .banner__container {
@@ -161,6 +187,17 @@ const props = defineProps({
   }
 }
 
+.segment-img{
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .segment-img {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .segment__list {
   width: min(90%, 940px);
 }
@@ -171,6 +208,13 @@ const props = defineProps({
   .finishes__image-wrapper {
     flex-basis: calc(100% / 5);
     width: calc(100% / 5);
+
+    @media (max-width: 768px) {
+      flex-basis: 100%;
+      width: 100%;
+      justify-content: center;
+    }
   }
+
 }
 </style>
