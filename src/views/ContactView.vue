@@ -7,15 +7,15 @@ const Swal = require('sweetalert2');
 
 
 
-// Estado para el carrusel
-const images = ref([
-    'https://i0.wp.com/robbreport.mx/wp-content/uploads/2022/07/captura-de-pantalla-2022-07-01-a-las-161353.jpg?fit=1277%2C796&ssl=1',
-    'https://via.placeholder.com/400x300/ff7f7f',
-    'https://via.placeholder.com/400x300/7f7fff'
-]);
+// // Estado para el carrusel
+// const images = ref([
+//     'https://i0.wp.com/robbreport.mx/wp-content/uploads/2022/07/captura-de-pantalla-2022-07-01-a-las-161353.jpg?fit=1277%2C796&ssl=1',
+//     'https://via.placeholder.com/400x300/ff7f7f',
+//     'https://via.placeholder.com/400x300/7f7fff'
+// ]);
 
-const activeImage = ref(0);
-const zoom = ref(false);
+// const activeImage = ref(0);
+// const zoom = ref(false);
 
 const buttomImage = computed(() => CONTACT.buttom_image);
 const title = computed(() => CONTACT.title);
