@@ -80,59 +80,10 @@ const handleSubmit = () => {
 
 <template>
     <section class="bg-primary w-full">
-        <img :src="topBannerImage" alt="">
+        <img :src="topBannerImage" alt="" class="w-full">
     </section>
 
-    <div class=" bg-primary container mx-auto px-6 py-8">
-            <div class="flex items-center justify-center space-x-4">
-                <!-- Carousel -->
-                <div class="w-full max-w-4xl relative"> 
-                    <div v-for="(image, index) in images" :key="index" v-show="activeImage === index" 
-                        class="w-full h-64 bg-cover bg-center rounded-lg shadow-lg cursor-pointer" 
-                        :style="{ backgroundImage: `url(${image})` }">
-                        <!-- Zoom Effect -->
-                        <div v-show="zoom" class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                            <img :src="image" class="transform scale-150" alt="Zoomed Image">
-                        </div>
-                        <!-- Zoom Button -->
-                        <button @click="zoom = !zoom" class="absolute top-2 right-2 bg-white bg-opacity-70 p-2 rounded-full shadow-lg">
-                            <i :class="[zoom ? 'fas fa-search-minus' : 'fas fa-search-plus']"></i>
-                        </button>
-                    </div>
-
-                    <!-- Controls -->
-                    <div class="flex justify-between absolute top-1/2 left-0 w-full px-4 transform -translate-y-1/2">
-                        <button @click="activeImage = activeImage > 0 ? activeImage - 1 : images.length - 1"
-                            class="text-white bg-gray-800 bg-opacity-50 rounded-full p-2">
-                            &#10094;
-                        </button>
-                        <button @click="activeImage = activeImage < images.length - 1 ? activeImage + 1 : 0"
-                            class="text-white bg-gray-800 bg-opacity-50 rounded-full p-2">
-                            &#10095;
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            
-        </div>
-
-    <div class="carousel-container">
-        <div class="carousel">
-        <div 
-            v-for="(image, index) in images" 
-            :key="index" 
-            class="carousel-item" 
-            @mouseover="currentImageIndex = index"
-        >
-            <img 
-            :src="image" 
-            :alt="'Image ' + (index + 1)" 
-            :class="{ zoomed: currentImageIndex === index }"
-            />
-        </div>
-        </div>
-    </div>
+    
 
     <section class="bg-white w-full">
         <section class="py-10">
