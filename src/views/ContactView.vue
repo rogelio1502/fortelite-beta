@@ -1,9 +1,21 @@
 <script setup>
-import { computed } from 'vue';
 import { ref } from 'vue';
+import { computed } from 'vue';
 import { CONTACT } from '@/constants/contact';
 import axios from 'axios';
-const Swal = require('sweetalert2')
+const Swal = require('sweetalert2');
+
+
+
+// Estado para el carrusel
+const images = ref([
+    'https://i0.wp.com/robbreport.mx/wp-content/uploads/2022/07/captura-de-pantalla-2022-07-01-a-las-161353.jpg?fit=1277%2C796&ssl=1',
+    'https://via.placeholder.com/400x300/ff7f7f',
+    'https://via.placeholder.com/400x300/7f7fff'
+]);
+
+const activeImage = ref(0);
+const zoom = ref(false);
 
 const buttomImage = computed(() => CONTACT.buttom_image);
 const title = computed(() => CONTACT.title);
@@ -36,7 +48,6 @@ const handleSubmit = () => {
             data: JSON.stringify(formData.value)
         }
     ).then(() => {
-
         formData.value = {
             fullName: '',
             email: '',
@@ -51,17 +62,19 @@ const handleSubmit = () => {
             text: thanksMessage.value,
             icon: 'success',
             confirmButtonText: 'OK'
-        })
+        });
     }).catch(error => {
         Swal.fire({
             title: '¡Ups...!',
             text: erroMessage.value,
             icon: 'error',
             confirmButtonText: 'OK'
-        })
+        });
         console.error(error);
     });
 };
+
+
 
 </script>
 
@@ -69,6 +82,57 @@ const handleSubmit = () => {
     <section class="bg-primary w-full">
         <img :src="topBannerImage" alt="">
     </section>
+
+    <div class=" bg-primary container mx-auto px-6 py-8">
+            <div class="flex items-center justify-center space-x-4">
+                <!-- Carousel -->
+                <div class="w-full max-w-4xl relative"> 
+                    <div v-for="(image, index) in images" :key="index" v-show="activeImage === index" 
+                        class="w-full h-64 bg-cover bg-center rounded-lg shadow-lg cursor-pointer" 
+                        :style="{ backgroundImage: `url(${image})` }">
+                        <!-- Zoom Effect -->
+                        <div v-show="zoom" class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <img :src="image" class="transform scale-150" alt="Zoomed Image">
+                        </div>
+                        <!-- Zoom Button -->
+                        <button @click="zoom = !zoom" class="absolute top-2 right-2 bg-white bg-opacity-70 p-2 rounded-full shadow-lg">
+                            <i :class="[zoom ? 'fas fa-search-minus' : 'fas fa-search-plus']"></i>
+                        </button>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="flex justify-between absolute top-1/2 left-0 w-full px-4 transform -translate-y-1/2">
+                        <button @click="activeImage = activeImage > 0 ? activeImage - 1 : images.length - 1"
+                            class="text-white bg-gray-800 bg-opacity-50 rounded-full p-2">
+                            &#10094;
+                        </button>
+                        <button @click="activeImage = activeImage < images.length - 1 ? activeImage + 1 : 0"
+                            class="text-white bg-gray-800 bg-opacity-50 rounded-full p-2">
+                            &#10095;
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+    <div class="carousel-container">
+        <div class="carousel">
+        <div 
+            v-for="(image, index) in images" 
+            :key="index" 
+            class="carousel-item" 
+            @mouseover="currentImageIndex = index"
+        >
+            <img 
+            :src="image" 
+            :alt="'Image ' + (index + 1)" 
+            :class="{ zoomed: currentImageIndex === index }"
+            />
+        </div>
+        </div>
+    </div>
 
     <section class="bg-white w-full">
         <section class="py-10">
@@ -165,7 +229,41 @@ const handleSubmit = () => {
     </section>
 </template>
 
+
+
 <style scoped>
+.carousel-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 80%;
+  margin: auto;
+}
+
+.carousel-item {
+  flex: 0 0 20%;
+  margin: 0 10px;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item img.zoomed {
+  transform: scale(1.2); /* Zoom effect */
+}
+
+
+
 
 .custom-padding{
     padding: 5rem;

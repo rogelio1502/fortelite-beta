@@ -10,9 +10,15 @@
       </p>
       <BarComponent position="top-left" height="20" width="320" inverted />
     </div>
-    <div class="pb-10">
+    <!-- <div class="pb-10">
       <img class="w-full h-[700px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/iStock-1214894854-scaled.jpg"/>
-    </div>
+    </div> -->
+
+    <template>
+  <fwb-carousel :pictures="pictures" />
+</template>
+
+
     <ContainerComponent class="pb-20">
       <h2 class="text-primary text-center text-5xl font-bold mb-8">Nuestra Historia</h2>
       <p class="text-2xl">
@@ -63,7 +69,15 @@
     <img class="w-2/12 absolute bottom-0 left-0 -z-10" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/Captura-de-pantalla-2024-07-21-a-las-12.46.58%E2%80%AFp.m-e1721587699795.png" loading="lazy">
   </div>
   <div>
-    <carousel :items-to-show="4">
+    <carousel :items-to-show="itemsToShow"
+  :breakpoints="{
+    768: {
+      itemsToShow: 1
+    },
+    1024: {
+      itemsToShow: 4
+    }
+  }">
       <slide v-for="(video, idx) in carouselVideos" :key="idx">
         <div class="carousel__item">
           <video controls width="300px" height="400px" autoplay loop muted>
@@ -94,6 +108,14 @@ const carouselVideos = computed(() => {
     };
   });
 });
+
+import { FwbCarousel } from 'flowbite-vue'
+
+const pictures = [
+  {src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Time-Line-Fortelite-Nosotros-e1723228748654.png', alt: 'Image 1'},
+  // {src: '/images/img-2.svg', alt: 'Image 2'},
+  // {src: '/images/img-3.svg', alt: 'Image 3'},
+]
 
 </script>
 <style scoped>
