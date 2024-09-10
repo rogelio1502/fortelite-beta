@@ -1,7 +1,17 @@
 <template>
   <div class="relative">
-    <div class="banner__container relative">
-      <img class="w-full" loading="lazy" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/Captura-de-pantalla-2024-07-21-a-las-3.01.31%E2%80%AFp.m.png">
+    <div>
+    <carousel class="carrousel" :items-to-show="1">
+      <slide v-for="(item, idx) in carouselImages" :key="idx">
+        <div class="carousel__item">
+          <img class="w-full" :src="item.src" :alt="item.alt" />
+        </div>
+      </slide>
+      <template #addons>
+        <navigation />
+        <pagination />
+      </template>
+    </carousel>
     </div>
     <div class="relative py-20">
       <h1 class="text-center text-sky-300 text-6xl font-bold mb-8">Nosotros</h1>
@@ -92,6 +102,70 @@
       </template>
     </carousel>
   </div>
+  <sirv-media-viewer
+    :id="id"
+    :slides="[
+      {
+        src: 'https://fortelite.sirv.com/_MG_0407.jpg',
+        type: 'zoom',
+        dataOptions: {
+          mode: 'deep',
+        },
+      },
+      {
+        src: 'https://fortelite.sirv.com/_MG_0769.jpg',
+        type: 'zoom',
+        dataOptions: {
+          mode: 'deep',
+        },
+      },
+      {
+        src: 'https://fortelite.sirv.com/IMG_1473.jpg',
+        type: 'zoom',
+        dataOptions: {
+          mode: 'deep',
+        },
+      },
+      {
+        src: 'https://fortelite.sirv.com/_MG_9993-Editar.jpg',
+        type: 'zoom',
+        dataOptions: {
+          mode: 'deep',
+        },
+      },
+      {
+        src: 'https://fortelite.sirv.com/_MG_0407.jpg',
+        type: 'zoom',
+        dataOptions: {
+          mode: 'deep',
+        },
+      },
+      {
+        src: 'https://fortelite.sirv.com/_MG_0769.jpg',
+        type: 'zoom',
+        dataOptions: {
+          mode: 'deep',
+        },
+      },
+      {
+        src: 'https://fortelite.sirv.com/_MG_9944-Editar.jpg',
+        type: 'zoom',
+        dataOptions: {
+          mode: 'deep',
+        },
+      },
+    ]"
+  ></sirv-media-viewer>
+  <div class="media-viewer-container">
+    <sirv-media-viewer
+      :id="id"
+      :slides="slides"
+    ></sirv-media-viewer>
+    <div class="flex justify-center mt-5">
+      <button class="btn mr-2" @click="prev">Previous</button>
+      <button class="btn" @click="next">Next</button>
+    </div>
+  </div>
 </template>
 <script setup>
 import { computed } from 'vue';
@@ -99,6 +173,9 @@ import BarComponent from '@/components/common/BarComponent.vue';
 import ContainerComponent from '@/components/common/ContainerComponent.vue';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import { HOME_CAROUSEL_VIDEOS } from "@/constants";
+import { HOME_CAROUSEL_IMAGES } from "@/constants";
+import { onMounted, ref } from 'vue';
+import { loadScript } from '@sirv/sirvjs-vue';
 
 const carouselVideos = computed(() => {
   return HOME_CAROUSEL_VIDEOS.map((video) => {
@@ -109,17 +186,68 @@ const carouselVideos = computed(() => {
   });
 });
 
-import { FwbCarousel } from 'flowbite-vue'
+const carouselImages = computed(() => {
+  return HOME_CAROUSEL_IMAGES.map((image) => {
+    return {
+      src: image.src,
+      alt: image.alt,
+    };
+  });
+});
 
-const pictures = [
-  {src: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Time-Line-Fortelite-Nosotros-e1723228748654.png', alt: 'Image 1'},
-  // {src: '/images/img-2.svg', alt: 'Image 2'},
-  // {src: '/images/img-3.svg', alt: 'Image 3'},
-]
+const viewer = ref(null);
+const id = ref('smv-test');
+const prev = () => {
+  if (viewer.value) {
+    viewer.value.prev();
+  }
+};
+
+const next = () => {
+  if (viewer.value) {
+    viewer.value.next();
+  }
+};
+
+onMounted(() => {
+  loadScript().then((sirv) => {
+    sirv.start();
+    sirv.on('viewer:ready', (e) => {
+      if (e.id === 'smv-test') {
+        viewer.value = e;
+        console.log('viewer:ready', e);
+      }
+    });
+  });
+});
 
 </script>
 <style scoped>
 .certifications {
   grid-template-columns: 60px 1fr;
+}
+
+:deep(.carousel__prev) {
+  background-color: transparent;
+  color: white;
+}
+
+:deep(.carousel__next) {
+  background-color: transparent;
+  color: white;
+}
+
+.media-viewer-wrapper {
+  flex-grow: 2;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa el 100% de la altura de la ventana de visualización */
+  padding: 20px; /* Ajusta el relleno si es necesario */
+  box-sizing: border-box; /* Incluye el relleno en el tamaño total del contenedor */
+}
+
+.sirv-media-viewer {
+  width: 100%;
+  height: 100%;
 }
 </style>

@@ -152,7 +152,7 @@ const props = defineProps({
 
 .banner__container {
   img {
-    height: 350px;
+    height: auto;
   }
 
   .banner__text {
