@@ -5,7 +5,7 @@
         <h2 class="mb-4 font-semibold">Grupo Fortelite México</h2>
         <nav>
           <ul class="flex flex-col font-light">
-            <li>www.foterlite.mx</li>
+            <li>www.fortelitelabels.mx</li>
             <li >
               Teléfono: +52 8118725333
               
@@ -14,7 +14,7 @@
               +52 8183624116
             </li>
             <li>
-              <a href="mailto:info@fortelit.mx">info@fortelit.mx</a>
+              <a href="mailto:info@fortelite.mx">info@fortelite.mx</a>
             </li>
             <li class="mt-4">Texcoco #57, Col. Paraíso</li>
             <li>Guadalupe, N.L., México</li>
@@ -26,7 +26,7 @@
         <nav>
           <ul class="flex flex-col gap-5 font-light">
             <li>
-              <RouterLink to="/">¿Quienes somos?</RouterLink>
+              <RouterLink to="/">¿Quiénes somos?</RouterLink>
             </li>
             <li>
               <RouterLink to="/">Contacto</RouterLink>
@@ -52,7 +52,7 @@
         </nav>
       </article>
       <article class="flex flex-col items-center">
-        <h2 class="mb-4 font-semibold">!SÍGUENOS!</h2>
+        <h2 class="mb-4 font-semibold">¡SÍGUENOS!</h2>
         <nav>
           <ul class="grid social-networks gap-4 place-items-center mx-auto">
             <li>

@@ -114,8 +114,28 @@ import BarComponent from '@/components/common/BarComponent.vue';
 
 @media only screen and (max-width: 768px) {
   .services__container {
-    width: calc(100% - 20px); /* Reduce los márgenes laterales en móviles */
+    width: calc(100% - 40px); /* Reduce los márgenes laterales en móviles */
     padding: 0 10px;
+  }
+
+  h1{
+    font-size: 90%;
+  }
+
+  h2{
+    font-size: 90%;
+  }
+
+  p{
+    font-size: 90%;
+  }
+
+  span{
+    font-size: 80%;
+  }
+
+  li{
+    font-size: 70%;
   }
 
   .banner-top {

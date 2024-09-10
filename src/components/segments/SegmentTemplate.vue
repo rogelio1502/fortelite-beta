@@ -6,10 +6,10 @@
     </div>
     <div class="relative">
       <BarComponent position="top-left" height="20" width="320" inverted />
-      <h2 class="text-center text-sky-300 text-6xl font-semibold pt-10 pb-11">Segmentos</h2>
+      <h2 class="text-center text-sky-300 text-6xl font-semibold pt-10 pb-11 text-seg">Segmentos</h2>
     </div>
     <div class="bg-primary text-white pt-10 pb-11">
-      <h1 class="text-center text-6xl">{{ props.segment.title }}</h1>
+      <h1 class="text-center text-6xl text-ayb">{{ props.segment.title }}</h1>
     </div>
     <div
       v-if="props.segment.segmentImages"      
@@ -85,7 +85,7 @@
           
           <div class="flex justify between">
 
-        <span class="d-block finish__text text-sky-300 text-2xl font-semibold ">{{ finish.text }}</span>
+        <span class="d-block finish__text text-sky-300 text-2xl font-semibold text-acb">{{ finish.text }}</span>
 
         </div>
 
@@ -130,16 +130,29 @@ const props = defineProps({
     gap: 10px; /* Opcional: reduce el espacio entre las imágenes */
   }
 
+  
   .segment__images img {
     width: 100%; /* Asegura que las imágenes ocupen todo el ancho de la columna */
     height: 150px; /* Ajusta la altura de las imágenes */
     object-fit: cover; /* Recorta la imagen para llenar el contenedor si es necesario */
   }
+
+  .text-acb{
+    font-size: 80%;
+  }
+
+  .text-seg{
+    font-size: 250%;
+  }
+
+  .text-ayb{
+    font-size: 150%;
+  }
 }
 
 .banner__container {
   img {
-    height: 350px;
+    height: auto;
   }
 
   .banner__text {
@@ -210,11 +223,12 @@ const props = defineProps({
     width: calc(100% / 5);
 
     @media (max-width: 768px) {
-      flex-basis: 100%;
+      flex-basis: calc(50%); /* Aquí estableces que en móviles cada elemento ocupe el 50% */
       width: 100%;
       justify-content: center;
     }
   }
 
+  
 }
 </style>

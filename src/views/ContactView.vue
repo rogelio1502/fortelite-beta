@@ -1,9 +1,21 @@
 <script setup>
-import { computed } from 'vue';
 import { ref } from 'vue';
+import { computed } from 'vue';
 import { CONTACT } from '@/constants/contact';
 import axios from 'axios';
-const Swal = require('sweetalert2')
+const Swal = require('sweetalert2');
+
+
+
+// Estado para el carrusel
+const images = ref([
+    'https://i0.wp.com/robbreport.mx/wp-content/uploads/2022/07/captura-de-pantalla-2022-07-01-a-las-161353.jpg?fit=1277%2C796&ssl=1',
+    'https://via.placeholder.com/400x300/ff7f7f',
+    'https://via.placeholder.com/400x300/7f7fff'
+]);
+
+const activeImage = ref(0);
+const zoom = ref(false);
 
 const buttomImage = computed(() => CONTACT.buttom_image);
 const title = computed(() => CONTACT.title);
@@ -36,7 +48,6 @@ const handleSubmit = () => {
             data: JSON.stringify(formData.value)
         }
     ).then(() => {
-
         formData.value = {
             fullName: '',
             email: '',
@@ -51,24 +62,28 @@ const handleSubmit = () => {
             text: thanksMessage.value,
             icon: 'success',
             confirmButtonText: 'OK'
-        })
+        });
     }).catch(error => {
         Swal.fire({
             title: '¡Ups...!',
             text: erroMessage.value,
             icon: 'error',
             confirmButtonText: 'OK'
-        })
+        });
         console.error(error);
     });
 };
+
+
 
 </script>
 
 <template>
     <section class="bg-primary w-full">
-        <img :src="topBannerImage" alt="">
+        <img :src="topBannerImage" alt="" class="w-full">
     </section>
+
+    
 
     <section class="bg-white w-full">
         <section class="py-10">
@@ -165,7 +180,41 @@ const handleSubmit = () => {
     </section>
 </template>
 
+
+
 <style scoped>
+.carousel-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 80%;
+  margin: auto;
+}
+
+.carousel-item {
+  flex: 0 0 20%;
+  margin: 0 10px;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item img.zoomed {
+  transform: scale(1.2); /* Zoom effect */
+}
+
+
+
 
 .custom-padding{
     padding: 5rem;
