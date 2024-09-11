@@ -11,7 +11,7 @@
               
             </li>
             <li>
-              +52 8183624116
+              +52 8110296350
             </li>
             <li>
               <a href="mailto:info@fortelite.mx">info@fortelite.mx</a>
@@ -26,13 +26,13 @@
         <nav>
           <ul class="flex flex-col gap-5 font-light">
             <li>
-              <RouterLink to="/">¿Quiénes somos?</RouterLink>
+              <RouterLink to="/clients">¿Quiénes somos?</RouterLink>
             </li>
             <li>
-              <RouterLink to="/">Contacto</RouterLink>
+              <RouterLink to="/contact">Contacto</RouterLink>
             </li>
             <li>
-              <RouterLink to="/">Ubicación</RouterLink>
+              <a href="https://maps.app.goo.gl/BFzSL7aj5bkU2pFW6?g_st=iw" target="_blank" title="Fortelite Ubicacion">Ubicacion</a>
             </li>
           </ul>
         </nav>
