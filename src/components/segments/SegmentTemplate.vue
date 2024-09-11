@@ -3,7 +3,7 @@
     <div class="banner__container relative">
       <img class="w-full" loading="lazy" :src="props.segment.bannerTop.image">
       <div class="absolute inset-0 flex items-center justify-center">
-        <div class="text-white md:text-3xl lg:text-5xl font-bold bg-black bg-opacity-30 p-4 rounded">
+        <div class="banner__text text-white md:text-3xl lg:text-5xl font-bold bg-black bg-opacity-30 p-4 rounded">
           {{ props.segment.bannerTop.text }}
         </div>
       </div>
@@ -237,6 +237,6 @@ const props = defineProps({
 }
 
 .banner__text {
-  background-color: #00000070;
+  text-shadow: 0 0 1.5px black;
 }
 </style>
