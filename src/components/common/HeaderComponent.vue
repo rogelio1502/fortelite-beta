@@ -6,7 +6,6 @@
       </RouterLink>
       <nav class="ml-auto">
         <ul class="hidden lg:flex items-center gap-0">
-
           <li
             v-for="(navItem, navItemIndex) in navigationList"
             :key="`${navItem.text}_${navItemIndex}`"
@@ -22,7 +21,7 @@
               @mouseleave="navItem.text === 'Segmentos' ? showDropdown = false : ''"
             >
               {{ navItem.text }}
-              <!-- Dropdown for Segments -->
+              <!-- Dropdown for Segments (desktop) -->
               <div
                 v-if="navItem.text === 'Segmentos' && showDropdown"
                 class="dropdown absolute top-full left-0 bg-white border rounded shadow-lg"
@@ -40,6 +39,7 @@
           </li>
         </ul>
 
+        <!-- Mobile Menu Button -->
         <div class="lg:hidden">
           <button @click="toggleMenu" class="text-black focus:outline-none">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -50,26 +50,34 @@
       </nav>
     </header>
 
+    <!-- Mobile Dropdown Menu -->
     <div :class="menuOpen ? 'block' : 'hidden'" class="lg:hidden flex flex-col space-y-2 mt-2">
-      <RouterLink
-        v-for="(navItem, navItemIndex) in navigationList"
-        :key="`${navItem.text}_${navItemIndex}`"
-        :to="navItem.to"
-        class="text-black  p-2 rounded"
-      >
-        {{ navItem.text }}
-      </RouterLink>
-      <!-- Dropdown for mobile view
-      <div v-if="menuOpen && activeDropdown === 'Segmentos'" class="flex flex-col mt-2 space-y-2">
+      <div v-for="(navItem, navItemIndex) in navigationList" :key="`${navItem.text}_${navItemIndex}`">
         <RouterLink
-          v-for="(segment, index) in segments"
-          :key="index"
-          :to="segment.to"
-          class="text-black bg-gray-200 p-2 rounded"
+          v-if="navItem.text !== 'Segmentos'"
+          :to="navItem.to"
+          class="text-black p-2 rounded"
         >
-          {{ segment.text }}
+          {{ navItem.text }}
         </RouterLink>
-      </div> -->
+
+        <!-- Dropdown for Segments in mobile -->
+        <div v-else>
+          <button @click="toggleMobileDropdown" class="text-black p-2 w-full text-left">
+            {{ navItem.text }}
+          </button>
+          <div v-if="mobileDropdownOpen" class="flex flex-col mt-2 space-y-2">
+            <RouterLink
+              v-for="(segment, index) in segments"
+              :key="index"
+              :to="segment.to"
+              class="text-black bg-gray-200 p-2 rounded"
+            >
+              {{ segment.text }}
+            </RouterLink>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -82,7 +90,7 @@ const route = useRoute()
 
 const menuOpen = ref(false)
 const showDropdown = ref(false)
-// const activeDropdown = ref('')
+const mobileDropdownOpen = ref(false)
 
 const navigationList = [
   { text: "Inicio", to: "/" },
@@ -108,11 +116,9 @@ function toggleMenu() {
   menuOpen.value = !menuOpen.value
 }
 
-
-
-// function showSegmentDropdown() {
-//   activeDropdown.value = 'Segmentos'
-// }
+function toggleMobileDropdown() {
+  mobileDropdownOpen.value = !mobileDropdownOpen.value
+}
 </script>
 
 <style lang="scss" scoped>
@@ -128,8 +134,8 @@ function toggleMenu() {
     opacity: 0;
   }
 
-  &:hover::after{
-    opacity: .5;
+  &:hover::after {
+    opacity: 0.5;
   }
 
   &.active::after {

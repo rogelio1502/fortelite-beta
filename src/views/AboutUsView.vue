@@ -1,10 +1,9 @@
 <template>
-  <div class="relative">
-    <div>
+  <div class="carousel-iner w-full h-full">
     <carousel class="carrousel" :items-to-show="1">
       <slide v-for="(item, idx) in carouselImages" :key="idx">
-        <div class="carousel__item">
-          <img class="w-full" :src="item.src" :alt="item.alt" />
+        <div class="carousel__item h-[400px] w-full bg-cover bg-top" :style="{ backgroundImage: `url(${item.src})` }">
+          <img class="w-full h-[400px] object-cover object-top" :src="item.src" :alt="item.alt" />
         </div>
       </slide>
       <template #addons>
@@ -12,7 +11,13 @@
         <pagination />
       </template>
     </carousel>
-    </div>
+  </div>
+
+
+
+
+  <div class="">
+
     <div class="relative py-20">
       <h1 class="text-center text-sky-300 text-6xl font-bold mb-8">Nosotros</h1>
       <p class="text-center text-4xl font-semibold text-primary">
@@ -25,8 +30,8 @@
     </div> -->
 
     <template>
-  <fwb-carousel :pictures="pictures" />
-</template>
+      <fwb-carousel :pictures="pictures" />
+    </template>
 
 
     <ContainerComponent class="pb-20">
@@ -36,63 +41,77 @@
         de expertos ha recorrido un largo camino en la búsqueda de la alta calidad y excelencia en cada producto
         que fabricamos, para asegurar así más resistencia, seguridad y una aliada silenciosa en ventas.
       </p>
-      <img src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Time-Line-Fortelite-Nosotros-e1723228748654.png" />
+      <img
+        src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Time-Line-Fortelite-Nosotros-e1723228748654.png" />
     </ContainerComponent>
     <hr class="my-10">
     <ContainerComponent class="pt-8 pb-20">
       <h2 class="text-sky-300 text-center text-5xl font-bold mb-8">Certificaciones:</h2>
       <div class="flex flex-col justify-center text-lg">
         <div class="grid gap-4 certifications">
-          <img class="w-full aspect-square object-contain" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/1.png" />
+          <img class="w-full aspect-square object-contain"
+            src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/1.png" />
           <p class="text-descript">
             <span class="text-primary font-bold">ISO 9001:2015:</span>
-            Estándar internacional enfocado en proporcionar productos y/oservicios que cumplan con los requerimientos internos y
+            Estándar internacional enfocado en proporcionar productos y/oservicios que cumplan con los requerimientos
+            internos y
             externos de maneraeficaz para controlar y mejorar su rendimiento.
           </p>
         </div>
         <div class="grid gap-4 certifications">
-          <img class="mx-auto w-6/12 aspect-square object-contain" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/2.png" />
+          <img class="mx-auto w-6/12 aspect-square object-contain"
+            src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/2.png" />
           <p class="text-descript">
             <span class="text-primary font-bold">UL:</span>
-            Norma que garantiza el cumplimiento de requisitos aplicables aproductos con respecto a su potencial riesgo de incendio, descarga
+            Norma que garantiza el cumplimiento de requisitos aplicables aproductos con respecto a su potencial riesgo
+            de
+            incendio, descarga
             eléctrica y peligros mecánicos.
           </p>
         </div>
         <div class="grid gap-4 certifications">
-          <img class="w-full aspect-square object-contain" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/rohs-icon-symbol-vector.jpg" />
+          <img class="w-full aspect-square object-contain"
+            src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/rohs-icon-symbol-vector.jpg" />
           <p class="text-descript">
             <span class="text-primary font-bold">RoHS:</span>
-            Restringe sustancias peligrosas en productos electrónicos, como plomo y mercurio, para proteger la salud y el medio ambiente,
+            Restringe sustancias peligrosas en productos electrónicos, como plomo y mercurio, para proteger la salud y
+            el
+            medio ambiente,
             promoviendo la seguridad y la sostenibilidad.
           </p>
         </div>
         <div class="grid gap-4 certifications">
-          <img class="mx-auto w-9/12 aspect-square object-contain" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/fsc-3-logo-png-transparent.png" />
+          <img class="mx-auto w-9/12 aspect-square object-contain"
+            src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/fsc-3-logo-png-transparent.png" />
           <p class="text-descript">
             <span class="text-primary font-bold">FSC:</span>
-            Asegura que los materiales provienen de bosques gestionados de manera responsable, promoviendo la conservación ambiental y el
+            Asegura que los materiales provienen de bosques gestionados de manera responsable, promoviendo la
+            conservación
+            ambiental y el
             desarrollo social y económico sostenible
           </p>
         </div>
       </div>
     </ContainerComponent>
-    <img class="w-2/12 absolute bottom-0 left-0 -z-10" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/Captura-de-pantalla-2024-07-21-a-las-12.46.58%E2%80%AFp.m-e1721587699795.png" loading="lazy">
+    <img class="w-2/12 absolute bottom-0 left-0 -z-10"
+      src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/Captura-de-pantalla-2024-07-21-a-las-12.46.58%E2%80%AFp.m-e1721587699795.png"
+      loading="lazy">
   </div>
+
   <div>
-    <carousel :items-to-show="itemsToShow"
-  :breakpoints="{
-    768: {
-      itemsToShow: 1
-    },
-    1024: {
-      itemsToShow: 4
-    }
-  }">
+    <carousel :items-to-show="itemsToShow" :breakpoints="{
+      768: {
+        itemsToShow: 1
+      },
+      1024: {
+        itemsToShow: 4
+      }
+    }">
       <slide v-for="(video, idx) in carouselVideos" :key="idx">
         <div class="carousel__item">
           <video controls width="300px" height="400px" autoplay loop muted>
-              <source :src="video.src" :type="video.type">
-              Tu navegador no soporta el elemento de video.
+            <source :src="video.src" :type="video.type">
+            Tu navegador no soporta el elemento de video.
           </video>
         </div>
       </slide>
@@ -150,12 +169,15 @@ const carouselImages = computed(() => {
   flex-grow: 2;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ocupa el 100% de la altura de la ventana de visualización */
-  padding: 20px; /* Ajusta el relleno si es necesario */
-  box-sizing: border-box; /* Incluye el relleno en el tamaño total del contenedor */
+  height: 100vh;
+  /* Ocupa el 100% de la altura de la ventana de visualización */
+  padding: 20px;
+  /* Ajusta el relleno si es necesario */
+  box-sizing: border-box;
+  /* Incluye el relleno en el tamaño total del contenedor */
 }
 
-.demo {  
+.demo {
   width: 200px;
   height: 300px;
   object-fit: cover;
@@ -166,42 +188,44 @@ const carouselImages = computed(() => {
   height: 100%;
 }
 
+
+
 @media only screen and (max-width: 768px) {
- 
-  h1{
+
+  h1 {
     font-size: 250%;
   }
 
- 
-  p{
+
+  p {
     font-size: 150%;
   }
 
 
-  .text-about{
+  .text-about {
     font-size: 130%;
   }
 
-  .text-descript{
+  .text-descript {
     font-size: 100%;
   }
 
-  h2{
+  h2 {
     font-size: 150%;
   }
 
-  span{
+  span {
     font-size: 80%;
   }
 
- 
+
 
   .banner-top {
-  .banner-top__text {
-    transform: translateY(-50%);
-  }
+    .banner-top__text {
+      transform: translateY(-50%);
+    }
 
-  
-}
+
+  }
 }
 </style>
