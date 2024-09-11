@@ -4,6 +4,8 @@ import { computed } from 'vue';
 import { CONTACT } from '@/constants/contact';
 import axios from 'axios';
 const Swal = require('sweetalert2');
+import { onMounted } from 'vue';
+import { loadScript } from '@sirv/sirvjs-vue';
 
 
 
@@ -33,6 +35,21 @@ const formData = ref({
     piecesQuantity: '',
     origin: '',
     message: ''
+});
+
+const viewer = ref(null);
+const id = ref('smv-test');
+
+onMounted(() => {
+  loadScript().then((sirv) => {
+    sirv.start();
+    sirv.on('viewer:ready', (e) => {
+      if (e.id === 'smv-test') {
+        viewer.value = e;
+        console.log('viewer:ready', e);
+      }
+    });
+  });
 });
 
 const handleSubmit = () => {
@@ -83,7 +100,81 @@ const handleSubmit = () => {
         <img :src="topBannerImage" alt="" class="w-full">
     </section>
 
-    
+    <div class=" bg-primary container mx-auto px-6 py-8">
+            <div class="flex items-center justify-center space-x-4">
+                <!-- Carousel -->
+                <div class="w-full max-w-4xl relative"> 
+                    <sirv-media-viewer
+                    :id="id"
+                    data-options="thumbnails.type:crop"
+                    :slides="[
+                    {
+                        src: 'https://fortelite.sirv.com/_MG_0407.jpg',
+                        type: 'zoom',
+                        dataOptions: {
+                        mode: 'deep',
+                        },
+                    },
+                    {
+                        src: 'https://fortelite.sirv.com/_MG_0769.jpg',
+                        type: 'zoom',
+                        dataOptions: {
+                        mode: 'deep',
+                        },
+                    },
+                    {
+                        src: 'https://fortelite.sirv.com/IMG_1473.jpg',
+                        type: 'zoom',
+                        dataOptions: {
+                        mode: 'deep',
+                        },
+                    },
+                    {
+                        src: 'https://fortelite.sirv.com/_MG_9993-Editar.jpg',
+                        type: 'zoom',
+                        dataOptions: {
+                        mode: 'deep',
+                        },
+                    },
+                    {
+                        src: 'https://fortelite.sirv.com/_MG_9944-Editar.jpg',
+                        type: 'zoom',
+                        dataOptions: {
+                        mode: 'deep',
+                        },
+                    },
+                    ]"
+                ></sirv-media-viewer>
+                <div style = "width: 200px; height: 100px;">
+                    <sirv-media-viewer
+                    :id="id"
+                    :slides="slides"
+                    ></sirv-media-viewer>
+                    <div class="flex justify-center mt-5">
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+    <div class="carousel-container">
+        <div class="carousel">
+        <div 
+            v-for="(image, index) in images" 
+            :key="index" 
+            class="carousel-item" 
+            @mouseover="currentImageIndex = index"
+        >
+            <img 
+            :src="image" 
+            :alt="'Image ' + (index + 1)" 
+            :class="{ zoomed: currentImageIndex === index }"
+            />
+        </div>
+        </div>
+    </div>
 
     <section class="bg-white w-full">
         <section class="py-10">
@@ -225,5 +316,25 @@ const handleSubmit = () => {
         padding: 1rem;
     }
 }
+
+:deep(.carousel__prev) {
+  background-color: transparent;
+  color: white;
+}
+
+:deep(.carousel__next) {
+  background-color: transparent;
+  color: white;
+}
+
+.media-viewer-wrapper {
+  flex-grow: 2;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa el 100% de la altura de la ventana de visualización */
+  padding: 20px; /* Ajusta el relleno si es necesario */
+  box-sizing: border-box; /* Incluye el relleno en el tamaño total del contenedor */
+}
+
 
 </style>
