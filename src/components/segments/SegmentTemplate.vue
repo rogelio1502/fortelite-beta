@@ -1,9 +1,9 @@
 <template>
   <div class="pb-20">
-    <div class="banner__container relative">
-      <img class="w-full" loading="lazy" :src="props.segment.bannerTop.image">
+    <div class="banner__container relative overflow-hidden">
+      <img class="w-full object-cover h-full" loading="lazy" :src="props.segment.bannerTop.image">
       <div class="absolute inset-0 flex items-center justify-center">
-        <div class="banner__text text-white md:text-3xl lg:text-5xl font-bold bg-black bg-opacity-30 p-4 rounded">
+        <div class="banner__text text-white md:text-3xl lg:text-5xl font-bold bg-black bg-opacity-30 p-1 rounded">
           {{ props.segment.bannerTop.text }}
         </div>
       </div>
@@ -154,20 +154,6 @@ const props = defineProps({
   }
 }
 
-.banner__container {
-  img {
-    height: auto;
-  }
-
-  .banner__text {
-    top: 50%;
-    left: 0;
-    right: 0;
-    text-align: center;
-    transform: translateY(-50%);
-  }
-}
-
 .image__wrapper {
   img {
     height: 380px;
@@ -232,11 +218,13 @@ const props = defineProps({
       justify-content: center;
     }
   }
-
-  
 }
 
 .banner__text {
   text-shadow: 0 0 1.5px black;
+}
+
+.banner__container {
+  height: 45vh;
 }
 </style>
