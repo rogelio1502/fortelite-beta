@@ -102,70 +102,6 @@
       </template>
     </carousel>
   </div>
-  <sirv-media-viewer
-    :id="id"
-    :slides="[
-      {
-        src: 'https://fortelite.sirv.com/_MG_0407.jpg',
-        type: 'zoom',
-        dataOptions: {
-          mode: 'deep',
-        },
-      },
-      {
-        src: 'https://fortelite.sirv.com/_MG_0769.jpg',
-        type: 'zoom',
-        dataOptions: {
-          mode: 'deep',
-        },
-      },
-      {
-        src: 'https://fortelite.sirv.com/IMG_1473.jpg',
-        type: 'zoom',
-        dataOptions: {
-          mode: 'deep',
-        },
-      },
-      {
-        src: 'https://fortelite.sirv.com/_MG_9993-Editar.jpg',
-        type: 'zoom',
-        dataOptions: {
-          mode: 'deep',
-        },
-      },
-      {
-        src: 'https://fortelite.sirv.com/_MG_0407.jpg',
-        type: 'zoom',
-        dataOptions: {
-          mode: 'deep',
-        },
-      },
-      {
-        src: 'https://fortelite.sirv.com/_MG_0769.jpg',
-        type: 'zoom',
-        dataOptions: {
-          mode: 'deep',
-        },
-      },
-      {
-        src: 'https://fortelite.sirv.com/_MG_9944-Editar.jpg',
-        type: 'zoom',
-        dataOptions: {
-          mode: 'deep',
-        },
-      },
-    ]"
-  ></sirv-media-viewer>
-  <div class="media-viewer-container">
-    <sirv-media-viewer
-      :id="id"
-      :slides="slides"
-    ></sirv-media-viewer>
-    <div class="flex justify-center mt-5">
-      <button class="btn mr-2" @click="prev">Previous</button>
-      <button class="btn" @click="next">Next</button>
-    </div>
-  </div>
 </template>
 <script setup>
 import { computed } from 'vue';
@@ -174,8 +110,6 @@ import ContainerComponent from '@/components/common/ContainerComponent.vue';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import { HOME_CAROUSEL_VIDEOS } from "@/constants";
 import { HOME_CAROUSEL_IMAGES } from "@/constants";
-import { onMounted, ref } from 'vue';
-import { loadScript } from '@sirv/sirvjs-vue';
 
 const carouselVideos = computed(() => {
   return HOME_CAROUSEL_VIDEOS.map((video) => {
@@ -195,31 +129,6 @@ const carouselImages = computed(() => {
   });
 });
 
-const viewer = ref(null);
-const id = ref('smv-test');
-const prev = () => {
-  if (viewer.value) {
-    viewer.value.prev();
-  }
-};
-
-const next = () => {
-  if (viewer.value) {
-    viewer.value.next();
-  }
-};
-
-onMounted(() => {
-  loadScript().then((sirv) => {
-    sirv.start();
-    sirv.on('viewer:ready', (e) => {
-      if (e.id === 'smv-test') {
-        viewer.value = e;
-        console.log('viewer:ready', e);
-      }
-    });
-  });
-});
 
 </script>
 <style scoped>
@@ -244,6 +153,12 @@ onMounted(() => {
   height: 100vh; /* Ocupa el 100% de la altura de la ventana de visualización */
   padding: 20px; /* Ajusta el relleno si es necesario */
   box-sizing: border-box; /* Incluye el relleno en el tamaño total del contenedor */
+}
+
+.demo {  
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .sirv-media-viewer {

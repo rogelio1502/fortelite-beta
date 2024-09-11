@@ -22,7 +22,6 @@
               {{ navItem.text }}
             </RouterLink>
           </li>
-          <li class="px-4 py-1 rounded bg-sky-100">ENG</li>
         </ul>
 
         <div class="lg:hidden">

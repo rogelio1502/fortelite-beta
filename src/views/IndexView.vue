@@ -2,26 +2,12 @@
 
 <template>
   <div class="video__container text-white text-center">
-    <video controls autoplay loop muted playsinline class="video__element">
+
+    <video controls autoplay loop muted playsinline class="video__element" ref="reproductor" @canplay="handleCanPlay" :style="{ display: videoVisible ? 'block' : 'none' }">
       <source src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/VIDEO-pag-inicio1.mp4"
         type="video/mp4">
       Tu navegador no soporta el elemento de video.
     </video>
-    <!-- <carousel :items-to-show="1">
-      <slide v-for="(video, idx) in carouselVideos" :key="idx">
-        <div class="carousel__item">
-          <video controls width="60%">
-              <source :src="video.src" :type="video.type">
-              Tu navegador no soporta el elemento de video.
-            
-          </video>
-        </div>
-      </slide>
-      <template #addons>
-        <navigation />
-        <pagination />
-      </template>
-</carousel> -->
   </div>
   <div class="relative">
     <ContainerComponent tag="article">
@@ -114,6 +100,24 @@ import ContainerComponent from "@/components/common/ContainerComponent.vue";
 // import { HOME_SEGMENTS, HOME_SERVICES, HOME_CAROUSEL_VIDEOS } from "@/constants";
 import { HOME_SEGMENTS, HOME_SERVICES } from "@/constants";
 import 'vue3-carousel/dist/carousel.css'
+import { onMounted } from 'vue';
+
+import { ref } from 'vue';
+
+const videoVisible = ref(false); // Inicialmente el video está oculto
+const reproductor = ref(null);
+function handleCanPlay() {
+  videoVisible.value = true; // Muestra el video cuando está listo para reproducirse
+}
+
+onMounted(() => {
+  // Asegúrate de que el video esté listo para reproducirse y luego llama a `play`
+  if (reproductor.value) {
+    reproductor.value.play().catch(error => {
+      console.error('Error al intentar reproducir el video:', error);
+    });
+  }
+});
 // import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { computed } from 'vue';
 
@@ -129,7 +133,7 @@ import 'vue3-carousel/dist/carousel.css'
 </script>
 <style lang="scss" scoped>
 .video__container {
-  min-height: 220px;
+  min-height: 100%;
   background-color: #214583;
 }
 
@@ -184,5 +188,11 @@ import 'vue3-carousel/dist/carousel.css'
     margin-bottom: 16px;
     /* Espacio entre las imágenes en dispositivos móviles */
   }
+  .video-placeholder {
+  width: 100%;
+  height: 500px; /* O el tamaño deseado del video */
+  background-color: #000; /* Simulando el fondo del video */
+}
+
 }
 </style>
