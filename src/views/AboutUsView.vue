@@ -31,7 +31,7 @@
 
     <ContainerComponent class="pb-20">
       <h2 class="text-primary text-center text-5xl font-bold mb-8">Nuestra Historia</h2>
-      <p class="text-2xl">
+      <p class="text-2xl text-about">
         Fortelite surge de la necesidad de etiquetas especializadas para diversos tipos de industria, nuestro equipo
         de expertos ha recorrido un largo camino en la búsqueda de la alta calidad y excelencia en cada producto
         que fabricamos, para asegurar así más resistencia, seguridad y una aliada silenciosa en ventas.
@@ -44,7 +44,7 @@
       <div class="flex flex-col justify-center text-lg">
         <div class="grid gap-4 certifications">
           <img class="w-full aspect-square object-contain" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/1.png" />
-          <p>
+          <p class="text-descript">
             <span class="text-primary font-bold">ISO 9001:2015:</span>
             Estándar internacional enfocado en proporcionar productos y/oservicios que cumplan con los requerimientos internos y
             externos de maneraeficaz para controlar y mejorar su rendimiento.
@@ -52,7 +52,7 @@
         </div>
         <div class="grid gap-4 certifications">
           <img class="mx-auto w-6/12 aspect-square object-contain" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/2.png" />
-          <p>
+          <p class="text-descript">
             <span class="text-primary font-bold">UL:</span>
             Norma que garantiza el cumplimiento de requisitos aplicables aproductos con respecto a su potencial riesgo de incendio, descarga
             eléctrica y peligros mecánicos.
@@ -60,7 +60,7 @@
         </div>
         <div class="grid gap-4 certifications">
           <img class="w-full aspect-square object-contain" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/rohs-icon-symbol-vector.jpg" />
-          <p>
+          <p class="text-descript">
             <span class="text-primary font-bold">RoHS:</span>
             Restringe sustancias peligrosas en productos electrónicos, como plomo y mercurio, para proteger la salud y el medio ambiente,
             promoviendo la seguridad y la sostenibilidad.
@@ -68,7 +68,7 @@
         </div>
         <div class="grid gap-4 certifications">
           <img class="mx-auto w-9/12 aspect-square object-contain" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/fsc-3-logo-png-transparent.png" />
-          <p>
+          <p class="text-descript">
             <span class="text-primary font-bold">FSC:</span>
             Asegura que los materiales provienen de bosques gestionados de manera responsable, promoviendo la conservación ambiental y el
             desarrollo social y económico sostenible
@@ -164,5 +164,44 @@ const carouselImages = computed(() => {
 .sirv-media-viewer {
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+ 
+  h1{
+    font-size: 250%;
+  }
+
+ 
+  p{
+    font-size: 150%;
+  }
+
+
+  .text-about{
+    font-size: 130%;
+  }
+
+  .text-descript{
+    font-size: 100%;
+  }
+
+  h2{
+    font-size: 150%;
+  }
+
+  span{
+    font-size: 80%;
+  }
+
+ 
+
+  .banner-top {
+  .banner-top__text {
+    transform: translateY(-50%);
+  }
+
+  
+}
 }
 </style>
