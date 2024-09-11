@@ -55,7 +55,7 @@
         v-for="(navItem, navItemIndex) in navigationList"
         :key="`${navItem.text}_${navItemIndex}`"
         :to="navItem.to"
-        class="text-black bg-blue-700 p-2 rounded"
+        class="text-black  p-2 rounded"
       >
         {{ navItem.text }}
       </RouterLink>
