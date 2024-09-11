@@ -95,6 +95,7 @@ const handleSubmit = () => {
                 <div class="w-full max-w-4xl relative"> 
                     <sirv-media-viewer
                     :id="id"
+                    data-options="thumbnails.type:crop"
                     :slides="[
                     {
                         src: 'https://fortelite.sirv.com/_MG_0407.jpg',
