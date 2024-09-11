@@ -1,6 +1,6 @@
 const HOME = {
   bannerTop: {
-    image: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/iStock-472659440-scaled.jpg',
+    image: 'https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/09/file-5.jpg',
     text: 'Potencializa el valor de tus productos.'
   },
   title: 'Hogar',
