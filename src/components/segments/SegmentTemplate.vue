@@ -30,7 +30,7 @@
           class="image__wrapper relative"
         >
           <img class="w-full" :src="image.image" loading="lazy">
-          <span class="image__text absolute text-white text-3xl font-semibold z-20">{{ image.text }}</span>       
+          <span class="image__text absolute text-white text-2xl font-semibold z-20">{{ image.text }}</span>  
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
       <div      
         class="segment__list mx-auto"
       >
-        <ul class="text-primary text-6xl list-outside list-disc">
+        <ul class="text-primary text-3xl list-outside list-disc m-3">
           <li
             v-for="(item, itemIndex) in props.segment.infoList.list"
             :key="`itemNo_${itemIndex}`"

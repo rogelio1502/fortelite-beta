@@ -30,7 +30,7 @@
             Ofrecemos soluciones de etiquetas y placas metálicas impresas
             especializadas para la identificación de productos y control de procesos
             a nivel mundial. Esforzándonos día a día por ser los mejores líderes en
-            el mercado de la industria de impresión de etiquetas.
+            el mercado de la industria de impresión de etiquetas y placas metálicas.
           </p>
         </div>
       </div>
