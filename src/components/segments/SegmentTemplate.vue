@@ -30,7 +30,7 @@
           class="image__wrapper relative"
         >
           <img class="w-full" :src="image.image" loading="lazy">
-          <span class="image__text absolute text-white text-3xl font-semibold z-20">{{ image.text }}</span>  
+          <span class="image__text absolute text-white text-2xl font-semibold z-20">{{ image.text }}</span>  
         </div>
       </div>
     </div>
