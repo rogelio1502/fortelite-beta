@@ -2,7 +2,7 @@
   <div class="">
     <header class="header__container flex items-center gap-20 pl-20 pr-8">
       <RouterLink to="/">
-        <img class="w-[100px] h-[72px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/08/Logo-Fortelite-01.png" />
+        <img class="w-[100px] h-[72px]" src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/09/logo-arriba.svg" />
       </RouterLink>
       <nav class="ml-auto">
         <ul class="hidden lg:flex items-center gap-0">
@@ -109,7 +109,7 @@ const segments = [
   {text: "Hogar", to: "/segments/hogar"},
   {text: "Farmacéutica", to: "/segments/farmaceutica"},
   {text: "Entretenimiento", to: "/segments/entretenimiento"},
-  {text: "Logistica", to: "/segments/logistica"},
+  {text: "Logística", to: "/segments/logistica"},
 ]
 
 function toggleMenu() {

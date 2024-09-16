@@ -53,7 +53,7 @@
             src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/1.png" />
           <p class="text-descript">
             <span class="text-primary font-bold">ISO 9001:2015:</span>
-            Estándar internacional enfocado en proporcionar productos y/oservicios que cumplan con los requerimientos
+            Estándar internacional enfocado en proporcionar productos y/o servicios que cumplan con los requerimientos
             internos y
             externos de maneraeficaz para controlar y mejorar su rendimiento.
           </p>
@@ -63,7 +63,7 @@
             src="https://lawngreen-wallaby-976278.hostingersite.com/wp-content/uploads/2024/07/2.png" />
           <p class="text-descript">
             <span class="text-primary font-bold">UL:</span>
-            Norma que garantiza el cumplimiento de requisitos aplicables aproductos con respecto a su potencial riesgo
+            Norma que garantiza el cumplimiento de requisitos aplicables a productos con respecto a su potencial riesgo
             de
             incendio, descarga
             eléctrica y peligros mecánicos.

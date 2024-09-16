@@ -123,7 +123,7 @@ const handleSubmit = () => {
                         },
                     },
                     {
-                        src: 'https://fortelite.sirv.com/IMG_1473.jpg',
+                        src: 'https://fortelite.sirv.com/botella%20zoom.png',
                         type: 'zoom',
                         dataOptions: {
                         mode: 'deep',
