@@ -42,7 +42,7 @@
       <div      
         class="segment__list mx-auto"
       >
-        <ul class="text-primary text-4xl list-outside list-disc">
+        <ul class="text-primary text-3xl list-outside list-disc m-3">
           <li
             v-for="(item, itemIndex) in props.segment.infoList.list"
             :key="`itemNo_${itemIndex}`"
